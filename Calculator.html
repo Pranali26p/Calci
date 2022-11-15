@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>Calculator</title>
+
+</head>
+<body>
+<div align="center">
+  <form onsubmit="javascript:cal(document.getElementById('valueshow').value);return false;">
+  <table align="center">
+    <tr>
+      <td colspan="4"><input id="valueshow" type="text" value="0"></td>
+    </tr>
+    <tr>
+      <td><input class="number" type="button" value=1 onClick="cals(this.value);"></td>
+        <td><input class="number"  type="button" value=2 onClick="cals(this.value);"></td>
+       <td><input class="number"  type="button" value=3 onClick="cals(this.value);"></td>
+        <td><input class="operation" type="button" value='/' onClick="cals(this.value);"></td>
+    </tr>
+    <tr>
+        <td><input class="number" type="button" value=4 onClick="cals(this.value);"></td>
+        <td><input class="number" type="button" value=5 onClick="cals(this.value);"></td>
+        <td><input class="number" type="button" value=6 onClick="cals(this.value);"></td>
+        <td><input class="operation" type="button" value='x' onClick="cals('*');"></td>
+    </tr>
+    <tr>
+       <td><input class="number" type="button" value=7 onClick="cals(this.value);"></td>
+       <td><input class="number" type="button" value=8 onClick="cals(this.value);"></td>
+       <td><input class="number" type="button" value=9 onClick="cals(this.value);"></td>
+       <td><input class="operation" type="button" value='-' onClick="cals(this.value);"></td>
+    </tr>
+    <tr>
+      <td><input class="number" type="button" value=0 onClick="cals(this.value);"></td>
+      <td><input class="number" type="button" value='.' onClick="cals(this.value);"></td>
+      <td><input class="bgclear" type="button" value='C' onClick="cals(this.value);"></td>
+      <td><input class="operation" type="button" value='+' onClick="cals(this.value);"></td>
+   </tr>
+   <tr>
+      <td colspan="4">
+<input type="button" class="equal" value='=' onClick="cal(document.getElementById('valueshow').value);">
+      </td>
+    </tr>
+</table>
+</form>
+</div>
+<style>
+  *{
+    background-color: #b8b8b8;
+  }
+div { width:500px; margin-left:30%; margin-top:5%}
+table{ width:100%; border:2px solid #ede5e5; box-shadow:0 0 2px 1px #2e2b2b;}
+input[type="button"]{ border:none; width:100%; padding:10px;
+   font-size:60px; outline:none; height:90px;transition: all 0.3s ease-in-out; 
+   transition: all 0.3s ease-in-out;}
+input[type="text"]{border:none; width:100%; height:100px; padding:10px; font-size:70px; outline:none;
+   font-weight:normal; color:#555}
+.number{ background-color:#747070; color:rgb(35, 31, 31); transition: all 0.3s ease-in-out;}
+.bgclear{ background:#393838; color:#747070;transition: all 0.3s ease-in-out;}
+.operation{ background-color:#110b18; color:#f9f9f9; transition: all 0.3s ease-in-out;}
+.equal{ background-color:#222521; color:#f9f9f9; transition: all 0.3s ease-in-out;}
+.number:hover{ background-color:#222; color:#f5f#747070;transition: all 0.3s ease-in-out;}
+.bgclear:hover{background-color:#583333; color:#f5f5f5;transition: all 0.3s ease-in-out;}
+.operation:hover{ background-color:#394464;; color:#747070;transition: all 0.3s ease-in-out;}
+.equal:hover{ background-color:#343731; transition: all 0.3s ease-in-out;}
+input[type="text"]:active{ font-size:75px;}
+.ps-btn{ border-radius:1px !important;}
+</style> 
+<script>
+function cals(buttonValue) 
+  {
+  if (buttonValue == 'C') 
+  {
+     document.getElementById('valueshow').value = '0';
+  }
+  else 
+    {
+      if(document.getElementById('valueshow').value == '0') 
+   {
+   
+     document.getElementById('valueshow').value = buttonValue;
+  }
+   
+    else 
+     {
+     
+      document.getElementById('valueshow').value += buttonValue;
+     }
+    }
+   }
+   function cal(equation)  
+  
+  {
+  var answer = eval(equation);
+document.getElementById('valueshow').value = answer;
+ }
+ </script>
+</body>
+</html>
